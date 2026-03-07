@@ -6,14 +6,24 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D0F81D012F5C23CC00DAABDD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D0F81CFF2F5C23C500DAABDD /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		D0F81CD02F581D5000DAABDD /* Apple Music Name Update.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple Music Name Update.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0F81CFF2F5C23C500DAABDD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D0F81CD22F581D5000DAABDD /* Apple Music Name Update */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Apple Music Name Update";
+			sourceTree = "<group>";
+		};
+		D0F81D0C2F5C25CA00DAABDD /* images */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -34,6 +44,8 @@
 			children = (
 				D0F81CD22F581D5000DAABDD /* Apple Music Name Update */,
 				D0F81CD12F581D5000DAABDD /* Products */,
+				D0F81CFF2F5C23C500DAABDD /* README.md */,
+				D0F81D0C2F5C25CA00DAABDD /* images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +74,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D0F81CD22F581D5000DAABDD /* Apple Music Name Update */,
+				D0F81D0C2F5C25CA00DAABDD /* images */,
 			);
 			name = "Apple Music Name Update";
 			packageProductDependencies = (
@@ -109,6 +122,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F81D012F5C23CC00DAABDD /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
