@@ -24,7 +24,7 @@ struct iTunesTrack: Codable, Identifiable {
 struct SongMatch: Identifiable {
   let id: String
   let persistentID: String?
-  let localTitle: String
+  var localTitle: String
   var jpTitle: String?
   var jpArtist: String?
   var artist: String
@@ -60,8 +60,7 @@ class MusicViewModel {
 
   private func fetchLocalTracks() async {
     do {
-      var request = MusicLibraryRequest<Song>()
-      request.limit = 100
+      let request = MusicLibraryRequest<Song>()
       let response = try await request.response()
 
       for song in response.items {
@@ -70,7 +69,7 @@ class MusicViewModel {
           SongPlayParameters.self,
           from: data
         )
-        
+
         let persistentID = Int(params.musicKit_persistentID)!
         let hexPersistentID = String(format: "%016llX", persistentID)
 
@@ -141,13 +140,21 @@ class MusicViewModel {
           print("Cannot find song for trackId: \(track.trackId)")
         }
       }
+      for i in start..<end {
+        if songs[i].status == .pending {
+          print("Failed to fetch title and artist for song at index: \(i)")
+          songs[i].status = .failed
+        }
+      }
     } catch {
       print("Failed to fetch iTunes lookup data: \(error)")
     }
   }
 
   func applyJPTitleArtist(for song: SongMatch) {
-    guard let newTitle = song.jpTitle, let newArtist = song.jpArtist, let persistentID = song.persistentID else {
+    guard let newTitle = song.jpTitle, let newArtist = song.jpArtist,
+      let persistentID = song.persistentID
+    else {
       return
     }
 
@@ -163,7 +170,7 @@ class MusicViewModel {
           end try
       end tell
       """
-    
+
     if let script = NSAppleScript(source: scriptSource) {
       var error: NSDictionary?
       let result = script.executeAndReturnError(&error)
@@ -171,6 +178,13 @@ class MusicViewModel {
         print("Script error: \(error)")
       } else {
         print("Script result: \(result)")
+        if let index = self.songs.firstIndex(where: {
+          $0.persistentID == song.persistentID
+        }) {
+          self.songs[index].localTitle = song.jpTitle ?? song.localTitle
+          self.songs[index].artist = song.jpArtist ?? song.artist
+          self.songs[index].status = .completed
+        }
       }
     }
   }

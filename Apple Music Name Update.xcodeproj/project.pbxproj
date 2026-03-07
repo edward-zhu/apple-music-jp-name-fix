@@ -21,11 +21,6 @@
 			path = "Apple Music Name Update";
 			sourceTree = "<group>";
 		};
-		D0F81D0C2F5C25CA00DAABDD /* images */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = images;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +40,6 @@
 				D0F81CD22F581D5000DAABDD /* Apple Music Name Update */,
 				D0F81CD12F581D5000DAABDD /* Products */,
 				D0F81CFF2F5C23C500DAABDD /* README.md */,
-				D0F81D0C2F5C25CA00DAABDD /* images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,7 +68,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D0F81CD22F581D5000DAABDD /* Apple Music Name Update */,
-				D0F81D0C2F5C25CA00DAABDD /* images */,
 			);
 			name = "Apple Music Name Update";
 			packageProductDependencies = (

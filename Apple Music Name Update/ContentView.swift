@@ -39,8 +39,11 @@ struct ContentView: View {
               }
             }
             Spacer()
-            if song.jpTitle != nil {
-              Button("Update Music Library") {
+            if song.jpTitle != nil
+              && (song.jpTitle != song.localTitle
+                || song.jpArtist != song.artist)
+            {
+              Button("Update to Music Library") {
                 viewModel.applyJPTitleArtist(for: song)
               }
               .buttonStyle(.borderedProminent)
@@ -53,7 +56,7 @@ struct ContentView: View {
     }
     .navigationTitle("Apple Music ID Updater")
     .toolbar {
-      Button("Update") {
+      Button("Fetch JP iTunes Store") {
         Task {
           await viewModel.fetchJPNames()
         }
