@@ -1,5 +1,6 @@
 # Apple Music JP Name Fix
 
+![](images/icon.png)
 
 Fix the Japanese Name in non-JP Apple Music Store.
 
