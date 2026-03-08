@@ -1,6 +1,6 @@
 # Apple Music JP Name Fix
 
-![](images/icon.png)
+<img src="https://github.com/edward-zhu/apple-music-jp-name-fix/blob/main/images/icon.png" style="width:50%; height:auto;">
 
 Fix the Japanese Name in non-JP Apple Music Store.
 
